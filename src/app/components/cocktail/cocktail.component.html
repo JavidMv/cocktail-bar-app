@@ -1,0 +1,48 @@
+<div class="cocktail-component-holder">
+  <div class="cocktail-component" (click)="toggleFlip()" [@flipState]="flip">
+    <div
+      class="cocktail-component--side cocktail-component--front"
+      [ngStyle]="{
+        background: ' url(' + cocktail.image_url + ') no-repeat ',
+        backgroundSize: '400px 300px',
+        backgroundColor: 'rgba(8, 29, 3, 0.4)'
+      }"
+    >
+      <span>
+        <button
+          class="cocktail-component__preorder-button"
+          title="Add to preorder"
+          (click)="addToPreorder(); toggleFlip()"
+        >
+          +
+        </button>
+      </span>
+      <div class="cocktail-info">
+        <h2 class="cocktail-info__cocktail-name">
+          {{ cocktail.cocktail_name }}
+        </h2>
+        <span class="cocktail-info__cocktail-price"
+          >Price: {{ cocktail.price }}</span
+        >
+      </div>
+    </div>
+    <div class="cocktail-component--side cocktail-component--back">
+      <button
+        class="cocktail-component__preorder-button"
+        title="Add to preorder"
+        (click)="addToPreorder(); toggleFlip()"
+      >
+        +
+      </button>
+      <p class="cocktail-name">
+        {{ cocktail.cocktail_name }}
+      </p>
+      <p class="ingredient">
+        {{ cocktail.ingredients1 }}
+      </p>
+      <p class="ingredient">
+        {{ cocktail.ingredients2 }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.modal-component {
+  background-color: rgba($color: black, $alpha: 0.4);
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+}

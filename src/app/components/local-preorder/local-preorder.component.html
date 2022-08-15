@@ -1,0 +1,66 @@
+<div class="local-preorder-container">
+  <div class="local-preorder-items" *ngIf="localPreorder.items.length !== 0">
+    <div
+      *ngFor="let localPreorderItem of localPreorder.items; let i = index"
+      class="local-preorder-component__preorder-item"
+    >
+      <div class="local-preorder-item__image">
+        <img
+          [src]="localPreorderItem.cocktail.image_url"
+          [alt]="localPreorderItem.cocktail.cocktail_name"
+        />
+      </div>
+      <div class="local-preorder-item__name">
+        <p>{{ localPreorderItem.cocktail.cocktail_name }}</p>
+      </div>
+      <div class="local-preorder-item__quantity">
+        <label for="">
+          Quantity
+          <p>
+            {{ localPreorderItem.quantity }}
+            <span>
+              <button
+                *ngIf="completedOrder === null"
+                class="local-preorder-item__quantity__button"
+                (click)="increaseQuant(localPreorderItem)"
+              >
+                +
+              </button>
+              <button
+                *ngIf="completedOrder === null"
+                class="local-preorder-item__quantity__button"
+                (click)="decreaseQuant(localPreorderItem)"
+              >
+                -
+              </button>
+            </span>
+          </p>
+        </label>
+      </div>
+      <div class="local-preorder-item__price">
+        <label for="">
+          Total price
+          <p>
+            {{ localPreorderItem.price | currency }}
+          </p>
+        </label>
+      </div>
+      <div class="local-preorder-item__button">
+        <button
+          *ngIf="completedOrder === null"
+          class="remove-button"
+          (click)="removeFromPreorder(localPreorderItem)"
+        >
+          🗑
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="local-preorder-summary">
+    <p>
+      Your preorder summary: <b>{{ localPreorder.totalPrice | currency }}</b>
+    </p>
+    <div class="local-preorder-total-price"></div>
+  </div>
+</div>

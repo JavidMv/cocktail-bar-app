@@ -1,0 +1,61 @@
+<form
+  (ngSubmit)="submitForm()"
+  [formGroup]="reservationForm"
+  class="reservation-component"
+>
+  <p style="text-align: 'center'">Please provide details</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input required formControlName="name" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input
+      (keypress)="numberOnly($event)"
+      required
+      formControlName="tel"
+      matInput
+      type="tel"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Select your seats</mat-label>
+    <mat-select required formControlName="tableFor">
+      <mat-option value="one"> &#9679; seat for 1 </mat-option>
+      <mat-option value="two"> &#9679; &#9679; seats for 2 </mat-option>
+      <mat-option value="three">
+        &#9679; &#9679; &#9679; seats for 3
+      </mat-option>
+      <mat-option value="four"> &#9726; table for 4 persons </mat-option>
+      <mat-option value="six">&#9726; &#9726; table for 6 persons </mat-option>
+      <mat-option value="eight"
+        >&#9726; &#9726; &#9726; table for 8 persons
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input
+      [min]="minDate"
+      required
+      formControlName="date"
+      matInput
+      type="date"
+    />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Time</mat-label>
+    <input required formControlName="time" matInput type="time" step="300" />
+  </mat-form-field>
+
+  <button
+    [disabled]="reservationForm.invalid"
+    type="submit"
+    mat-raised-button
+    color="primary"
+  >
+    Confirm
+  </button>
+</form>

@@ -1,0 +1,32 @@
+<div class="reservation-component__announcement">
+  <h3>You can now preorder drinks for your reservation from menu page!</h3>
+</div>
+<div class="reservation">
+  <div class="reservation--left">
+    <div>
+      <app-reservation-form
+        (handleSubmit)="submitForm($event)"
+        *ngIf="completedOrder === null; else completedValue"
+      ></app-reservation-form>
+    </div>
+  </div>
+  <div class="reservation--right">
+    <app-preorder *ngIf="completedOrder === null"></app-preorder>
+  </div>
+  <ng-template #completedValue>
+    <app-modal>
+      <div class="summaryModal">
+        <h2>Reservation for {{ completedOrder?.name }} has been noted.</h2>
+        <br />
+        <h3>Details:</h3>
+        <br />
+        <p>
+          Reservation on {{ completedOrder?.date }} at
+          {{ completedOrder?.time }} for
+          {{ completedOrder?.tableFor }} person(s)
+        </p>
+        <app-preorder></app-preorder>
+      </div>
+    </app-modal>
+  </ng-template>
+</div>

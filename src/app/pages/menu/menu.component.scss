@@ -1,0 +1,23 @@
+.menu-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu-component__cocktails-holder {
+  padding: 50px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(4, auto);
+  gap: 30px 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-component__announcement {
+  font-weight: 700;
+  font-size: larger;
+  padding-top: 50px;
+  color: crimson;
+}

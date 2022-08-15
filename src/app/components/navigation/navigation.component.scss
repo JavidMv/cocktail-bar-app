@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgb(197, 192, 234);
+  height: 100px;
+  align-items: center;
+}
+
+.navbar__app-name {
+  margin: 0px 5px;
+  color: crimson;
+}
+
+.navbar__links-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links-container__link {
+  margin: 0px 5px;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 0px 5px;
+  transition: 0.5s;
+  &:hover {
+    background-color: rgb(231, 230, 234);
+    color: crimson;
+  }
+}

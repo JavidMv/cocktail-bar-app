@@ -1,0 +1,62 @@
+%flexin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cocktail-component {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: transform 1s;
+}
+.cocktail-component--side {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  backface-visibility: hidden;
+
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+}
+.cocktail-component--front {
+  transform: rotateY(0deg);
+  @extend %flexin;
+}
+.cocktail-component--back {
+  background: #23262d;
+  transform: rotateY(-180deg);
+  @extend %flexin;
+}
+
+.cocktail-info {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  @extend %flexin;
+}
+
+.cocktail-component__preorder-button {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 5px;
+  right: 5px;
+  background-color: rgb(44, 187, 51);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  &:active {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}

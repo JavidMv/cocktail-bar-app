@@ -1,0 +1,12 @@
+<div class="menu-component">
+  <div class="menu-component__announcement">
+    <p>You can now preorder drinks for your reservation!</p>
+  </div>
+  <app-local-preorder></app-local-preorder>
+  <div class="menu-component__cocktails-holder">
+    <app-cocktail
+      *ngFor="let cocktail of cocktails; let i = index"
+      [cocktail]="cocktail"
+    ></app-cocktail>
+  </div>
+</div>

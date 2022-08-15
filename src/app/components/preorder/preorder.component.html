@@ -1,0 +1,39 @@
+<div class="preorder-component">
+  <div class="preorder-container">
+    <div class="preorder-items" *ngIf="preorder.items.length !== 0">
+      <div
+        *ngFor="let preorderItem of preorder.items; let i = index"
+        class="preorder-component__preorder-item"
+      >
+        <div class="preorder-item__image">
+          <img
+            [src]="preorderItem.cocktail.image_url"
+            [alt]="preorderItem.cocktail.cocktail_name"
+          />
+        </div>
+        <div class="preorder-item__name">
+          <p>{{ preorderItem.cocktail.cocktail_name }}</p>
+        </div>
+        <div class="preorder-item__quantity">
+          <label for="">
+            Quantity
+            <p>
+              {{ preorderItem.quantity }}
+            </p>
+          </label>
+        </div>
+        <div class="preorder-item__price">
+          <p>
+            {{ preorderItem.price | currency }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="preorder-summary">
+      <p>
+        Your preorder summary: <b>{{ preorder.totalPrice | currency }}</b>
+      </p>
+    </div>
+  </div>
+</div>
